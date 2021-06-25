@@ -16,16 +16,13 @@ import matplotlib.pyplot as plt
 c = 3.0e8 #m/s
 nm_to_m = 1e-9
 
-def add_line(wavelength, intensity, column_density, atmo_velocity, line_center, oscillator_strength, inverse_lifetime):
+def add_line(wavelength, intensity, column_density, atmo_velocity, line_center, inverse_lifetime, oscillator_strength=1):
     freq = c / (nm_to_m * wavelength)
     center_freq = c / (nm_to_m * line_center)
     return intensity*np.exp(-column_density*oscillator_strength*voigt_profile(freq - center_freq, atmo_velocity, inverse_lifetime))
 
 hydrogen = np.genfromtxt('line_files/hydrogen.csv', delimiter=',', skip_header=2)
-hydrogen[:,1] /= hydrogen[:,1].max()
-
 helium = np.genfromtxt('line_files/helium.csv', delimiter=',', skip_header=2)
-helium[:,1] = 1
 
 cols = [1e17]
 atmo_sigma = 1e12

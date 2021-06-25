@@ -1,9 +1,9 @@
 data from https://physics.nist.gov/cgi-bin/ASD/lines1.pl?spectra=H+I&limits_type=0&low_w=&upp_w=&unit=1&submit=Retrieve+Data&de=0&format=0&line_out=0&en_unit=0&output=0&bibrefs=1&page_size=15&show_obs_wl=1&show_calc_wl=1&unc_out=1&order_out=0&max_low_enrg=&show_av=2&max_upp_enrg=&tsb_value=0&min_str=&A_out=0&intens_out=on&max_str=&allowed_out=1&forbid_out=1&min_accur=&min_intens=&conf_out=on&term_out=on&enrg_out=on&J_out=on
-wavelength (nm), Rel. Intensity, A_ki (s^{-1})
-102.57, 250000, 1.67e8
-121.56, 840000, 6.26e8
-388.9,  70000, 2.2148e5
-410.17, 70000, 5.14e6
-434.0, 90000, 9.4e6
-486.1, 180000, 2.06e7
-656.28, 500000, 6.4e7
+wavelength (nm), A_ki (s^{-1})
+102.57, 1.67e8
+121.56, 6.26e8
+388.9,  2.2148e5
+410.17, 5.14e6
+434.0,  99.4e6
+486.1,  2.06e7
+656.28, 6.4e7
