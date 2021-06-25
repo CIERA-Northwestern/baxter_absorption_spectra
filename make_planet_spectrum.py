@@ -12,6 +12,7 @@ Usage:
     make_line.py <planet>
 
 """
+import os
 from configparser import ConfigParser
 from pathlib import Path
 
@@ -32,6 +33,7 @@ for k, frac in elements.items():
     elements[k] = float(frac)
 for k, frac in atmosphere.items():
     atmosphere[k] = float(frac)
+
     
 c = 3.0e8 #m/s
 nm_to_m = 1e-9
@@ -53,7 +55,17 @@ for ele, ele_frac in elements.items():
     N_ele = ele_frac*N
     for i in range(ele_data.shape[0]):
         line = tuple(ele_data[i,:])
-        intensities = add_line(lambdas, intensities, N, atmo_sigma, *line)
+        intensities = add_line(lambdas, intensities, N_ele, atmo_sigma, *line)
+
+if not os.path.exists('outreach_data/'):
+    os.makedirs('outreach_data/')
+data_dir = 'outreach_data/{:s}/'.format(args['<planet>'].split('/')[-1])
+if not os.path.exists('{:s}'.format(data_dir)):
+    os.makedirs('{:s}'.format(data_dir))
+
+header = "wavelength (nm), relative flux"
+data = np.array([lambdas, intensities]).T
+np.savetxt('{:s}/raw_spectrum.csv'.format(data_dir), data, delimiter=',', header=header)
 
 plt.plot(lambdas, intensities, label='N={}'.format(N))
 plt.show()

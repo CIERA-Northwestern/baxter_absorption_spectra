@@ -1,0 +1,28 @@
+data from https://physics.nist.gov/cgi-bin/ASD/lines1.pl?spectra=Li+1&limits_type=0&low_w=&upp_w=&unit=1&submit=Retrieve+Data&de=0&format=0&line_out=0&en_unit=0&output=0&bibrefs=1&page_size=15&show_obs_wl=1&show_calc_wl=1&unc_out=1&order_out=0&max_low_enrg=&show_av=2&max_upp_enrg=&tsb_value=0&min_str=&A_out=0&intens_out=on&max_str=&allowed_out=1&forbid_out=1&min_accur=&min_intens=&conf_out=on&term_out=on&enrg_out=on&J_out=on
+wavelength (nm), A_ki (s^{-1})
+18505, 6.9683e4
+13747, 2.5476e4
+5739.4, 1.1011e5
+3355.14, 2.3001e6
+3232,	 3.3705e6
+3046,	 2.8507e6
+2021.99, 7.2900e6
+1879,	 1.3307e6
+1543.15, 1.9530e6
+1178.35, 4.7266e6
+1050.064, 3.5694e6
+1009.039, 7.567e6
+822.636,  6.4409e6
+664.298, 1.9596e6
+654.611, 1.5246e7
+625.222, 1.3225e7
+488.122, 2.3783e7
+467.170, 1.8592e8
+432.5,	 1.0762e8
+368.432, 3.0587e7
+319.943, 1.483e7
+273.055, 5.796e6
+240.233, 1.4799e7
+101.8,	 1.8072e8
+16.721, 6.1947e8
+

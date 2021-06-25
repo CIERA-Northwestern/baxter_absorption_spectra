@@ -1,7 +1,8 @@
 [elements]
 hydrogen = 0.75
-helium = 0.25
+helium = 0.24
+lithium = 0.01
 
 [atmosphere]
-n = 1e12
+n = 1e13
 sigma = 2e12
