@@ -2,8 +2,5 @@ data from https://physics.nist.gov/cgi-bin/ASD/lines1.pl?spectra=H+I&limits_type
 wavelength (nm), A_ki (s^{-1})
 102.57, 1.67e8
 121.56, 6.26e8
-388.9,  2.2148e5
-410.17, 5.14e6
-434.0,  99.4e6
 486.1,  2.06e7
 656.28, 6.4e7
