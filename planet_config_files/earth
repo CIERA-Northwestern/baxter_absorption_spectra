@@ -1,0 +1,8 @@
+[elements]
+nitrogen = 0.78
+oxygen = 0.21
+argon = 0.01
+
+[atmosphere]
+n = 2e13
+sigma = 2e12

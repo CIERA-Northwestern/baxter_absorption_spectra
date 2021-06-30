@@ -60,7 +60,11 @@ for f in elements:
     these_lines = []
     for i in range(line_data.shape[0]):
         for ax in [ax1, ax2, ax3]:
-            these_lines.append(ax.axvline(line_data[i,0], c='r'))
+            if ax != ax2:
+                color='r'
+            else:
+                color='white'
+            these_lines.append(ax.axvline(line_data[i,0], c=color, lw=0.5))
     fig.suptitle('{:s}'.format(f.split('/')[-1].split('.csv')[0]))
     fig.savefig('{:s}/{:s}_lines.png'.format(folder, f.split('/')[-1].split('.csv')[0]), dpi=300, bbox_inches='tight')
     for line in these_lines:
