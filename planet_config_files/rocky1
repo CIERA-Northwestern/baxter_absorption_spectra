@@ -1,0 +1,12 @@
+[elements]
+nitrogen = 0.6
+oxygen = 0.1
+carbon = 0.1
+hydrogen = 0.1
+argon = 0.05
+silicon = 0.05
+
+
+[atmosphere]
+n = 2e13
+sigma = 1e12

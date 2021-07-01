@@ -2,7 +2,10 @@
 Makes student-friendly plots of the data
 
 Usage:
-    plot_spectrum_and_filters.py <spectra_folder>
+    plot_spectrum_and_filters.py <spectra_folder> [options]
+
+Options:
+    --counts=<c>    Avgs counts per bin for poisson noise [default: 1e3]
 
 """
 import os
@@ -12,6 +15,7 @@ from pathlib import Path
 
 from docopt import docopt
 import numpy as np
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 
@@ -19,10 +23,18 @@ args = docopt(__doc__)
 
 folder= args['<spectra_folder>']
 spectrum = np.genfromtxt('{:s}/raw_spectrum.csv'.format(folder), delimiter=',', skip_header=1)
+counts = float(args['--counts'])
+for i in range(spectrum.shape[0]):
+    spectrum[i,1] = np.random.poisson(lam=counts*spectrum[i,1])/counts
 
-transparency_data = np.zeros((1000, 4))
-transparency_data[:, 3] = np.linspace(1, 0, 1000)
-transparency_cmap = ListedColormap(transparency_data)
+cmap = mpl.cm.binary_r
+transparency_cmap = cmap(np.arange(cmap.N))
+transparency_cmap[:,-1] = (1 - transparency_cmap[:,0])**2
+transparency_cmap[:,:-1] = 0
+#transparency_cmap[:,-1] = np.linspace(1,0, cmap.N)
+#transparency_data = np.zeros((1000, 4))
+#transparency_data[:900, 3] = np.linspace(1, 0, 900)
+transparency_cmap = ListedColormap(transparency_cmap)
 
 fig = plt.figure()
 ax1 = fig.add_subplot(3,1,1)
@@ -49,6 +61,7 @@ for ax in [ax1, ax2, ax3]:
     ax.set_xticks(())
     ax.set_yticks(())
     ax.set_xlim((xx.min(), xx.max()))
+ax1.set_ylim(0, None)
 
 fig.savefig('{:s}/raw_spectrum.png'.format(folder), dpi=300, bbox_inches='tight')
 

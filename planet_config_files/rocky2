@@ -1,0 +1,11 @@
+[elements]
+helium = 0.5
+silicon = 0.25
+magnesium = 0.1
+potassium = 0.1
+lithium = 0.05
+
+
+[atmosphere]
+n = 2e13
+sigma = 1e12

@@ -5,4 +5,4 @@ argon = 0.01
 
 [atmosphere]
 n = 2e13
-sigma = 2e12
+sigma = 1e12
