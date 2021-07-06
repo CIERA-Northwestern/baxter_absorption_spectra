@@ -77,7 +77,7 @@ np.savetxt('{:s}/raw_spectrum.csv'.format(data_dir), data, delimiter=',', header
 if techno != 'None':
     if data_dir[-1] == os.sep:
         data_dir=data_dir[:-1]
-    technos = ['sawtooth','linear','laser']
+    technos = ['sawtooth','linear','laser','gap']
     if techno == 'random': techno = technos[np.random.randint(len(technos))]
 
     if techno == 'sawtooth':
