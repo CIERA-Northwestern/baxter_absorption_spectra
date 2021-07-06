@@ -11,7 +11,7 @@ n = density of absorber
 L * n = N = column density
 
 Usage:
-    make_line.py <planet>
+    make_line.py <planet> <techno>
 
 """
 import os
@@ -35,6 +35,9 @@ for k, frac in elements.items():
     elements[k] = float(frac)
 for k, frac in atmosphere.items():
     atmosphere[k] = float(frac)
+
+## read techno signature
+techno = args['<techno>']
 
     
 c = 3.0e8 #m/s
@@ -70,5 +73,39 @@ header = "wavelength (nm), relative flux"
 data = np.array([lambdas, intensities]).T
 np.savetxt('{:s}/raw_spectrum.csv'.format(data_dir), data, delimiter=',', header=header)
 
-plt.plot(lambdas, intensities, label='N={}'.format(N))
-plt.show()
+
+if techno != 'None':
+    if data_dir[-1] == os.sep:
+        data_dir=data_dir[:-1]
+    technos = ['sawtooth','linear','laser']
+    if techno == 'random': techno = technos[np.random.randint(len(technos))]
+
+    if techno == 'sawtooth':
+        thetas = np.linspace(0,2*np.pi,intensities.size,endpoint=False)
+        sawtooth_mask = np.abs(np.sin(10*thetas)>0.9)
+        intensities[sawtooth_mask]*=0.2
+    elif techno == 'linear':
+        xs = np.arange(intensities.size)
+        ys = 1-1/xs[-1]*xs
+        ys[int(intensities.size//2):] = 1
+        intensities*=ys
+    elif techno == 'laser':
+        index = np.random.randint(intensities.size)
+        intensities[index]+=1
+    elif techno == 'gap':
+        indices = np.zeros(intensities.size,dtype=bool)
+        midpoint = int(intensities.size//2)
+        qtile = int(midpoint//2)
+        indices[qtile:qtile+midpoint] = 1
+        intensities[indices]*=0
+
+    else:
+        raise KeyError("Bad techno %s"%techno)
+
+    if not os.path.exists('%s_techno'%data_dir):
+        os.makedirs('%s_techno'%data_dir)
+    data = np.array([lambdas, intensities]).T
+    np.savetxt('%s_techno/raw_spectrum.csv'%data_dir, data, delimiter=',', header=header)
+
+#plt.plot(lambdas, intensities, label='N={}'.format(N))
+#plt.show()
