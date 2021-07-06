@@ -1,0 +1,10 @@
+[elements]
+hydrogen = 0.7
+helium   = 0.2
+fluorine = 0.05
+sulfur   = 0.03
+silicon  = 0.02
+
+[atmosphere]
+n = 5e13
+sigma = 3e12

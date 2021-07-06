@@ -1,0 +1,11 @@
+[elements]
+hydrogen = 0.7
+helium   = 0.15
+phosphorus = 0.05
+fluorine = 0.04
+chlorine  = 0.03
+oxygen   = 0.03
+
+[atmosphere]
+n = 5e13
+sigma = 1e12

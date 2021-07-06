@@ -39,12 +39,12 @@ for k, frac in atmosphere.items():
     
 c = 3.0e8 #m/s
 nm_to_m = 1e-9
-max_freq = c / (nm_to_m * 1000)
+min_freq = c / (nm_to_m * 100)
 
 def add_line(wavelength, intensity, column_density, atmo_velocity, line_center, inverse_lifetime, oscillator_strength=1):
     freq = c / (nm_to_m * wavelength)
     center_freq = c / (nm_to_m * line_center)
-    return intensity*np.exp(-column_density*oscillator_strength*voigt_profile(freq - center_freq, atmo_velocity*(center_freq/max_freq)**(2), inverse_lifetime*(center_freq/max_freq)**(2)))
+    return intensity*np.exp(-column_density*oscillator_strength*voigt_profile(freq - center_freq, atmo_velocity*(center_freq/min_freq)**(1/2), inverse_lifetime))
 
 print(atmosphere)
 N = atmosphere['n']

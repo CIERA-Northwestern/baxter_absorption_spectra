@@ -1,0 +1,10 @@
+[elements]
+argon = 0.6
+oxygen = 0.2
+carbon = 0.1
+sulfur = 0.1
+
+
+[atmosphere]
+n = 2e13
+sigma = 1e12

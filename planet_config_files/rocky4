@@ -1,0 +1,12 @@
+[elements]
+argon = 0.6
+carbon = 0.15
+sulfur = 0.10
+chlorine = 0.08
+magnesium = 0.05
+lithium = 0.04
+
+
+[atmosphere]
+n = 2e13
+sigma = 1e12

@@ -65,6 +65,9 @@ ax1.set_ylim(0, None)
 
 fig.savefig('{:s}/raw_spectrum.png'.format(folder), dpi=300, bbox_inches='tight')
 
+if not os.path.exists('{:s}/filters/'.format(folder)):
+    os.makedirs('{:s}/filters/'.format(folder))
+
 
 # Make element filters
 elements = glob.glob('line_files/*')
@@ -79,6 +82,6 @@ for f in elements:
                 color='white'
             these_lines.append(ax.axvline(line_data[i,0], c=color, lw=0.5))
     fig.suptitle('{:s}'.format(f.split('/')[-1].split('.csv')[0]))
-    fig.savefig('{:s}/{:s}_lines.png'.format(folder, f.split('/')[-1].split('.csv')[0]), dpi=300, bbox_inches='tight')
+    fig.savefig('{:s}/filters/{:s}_lines.png'.format(folder, f.split('/')[-1].split('.csv')[0]), dpi=300, bbox_inches='tight')
     for line in these_lines:
         line.remove()

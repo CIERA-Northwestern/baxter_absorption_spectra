@@ -1,0 +1,12 @@
+[elements]
+hydrogen = 0.7
+helium   = 0.15
+argon     = 0.05
+sulfur    = 0.03
+potassium = 0.02
+magnesium = 0.01
+
+
+[atmosphere]
+n = 5e13
+sigma = 1e12
