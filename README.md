@@ -16,3 +16,12 @@ Data will be output to outreach_data/rocky1/
 > python3 plot_spectrum_and_filters.py outreach_data/rocky1
 
 Data will be output to outreach_data/rocky1/ and outreach_data/rocky1/filters/
+
+### Dependencies
+
+1. [python 3](https://www.python.org/)
+2. [NumPy](https://numpy.org/)
+3. [SciPy](https://www.scipy.org/)
+4. [Matplotlib](https://matplotlib.org/)
+5. [Docopt](http://docopt.org/)
+6. [Jupyter](https://jupyter.org/)
